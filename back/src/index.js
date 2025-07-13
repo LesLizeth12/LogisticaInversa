@@ -1,12 +1,12 @@
 require('dotenv').config();
 const express = require('express');
 const helmet = require('helmet');
-const areaController = require('./controllers/AreaController');
-const empleadoController=require('./controllers/EmpleadoController');
+const estacionController=require('./controllers/EstacionController');
+const horarioController=require('./controllers/HorarioController');
+const informeController=require('./controllers/InformeController');
+const zonaTuristicaController=require('./controllers/ZonaTuristicaController');
 const tipoUsuarioController=require('./controllers/TipoUsuarioController');
 const usuarioController=require('./controllers/UsuarioController');
-const boletaController=require('./controllers/BoletaController');
-
 
 const app =express();
 app.use(express.json());
@@ -23,11 +23,12 @@ app.use((req, res,next) => {
     next();
 })
 
-app.use('/api/area',areaController);
-app.use('/api/empleado',empleadoController);
+app.use('/api/estacion',estacionController);
+app.use('/api/informe',informeController);
+app.use('/api/zonaTuristica',zonaTuristicaController);
 app.use('/api/tipoUsuario',tipoUsuarioController);
 app.use('/api/usuario',usuarioController);
-app.use('/api/boleta',boletaController);
+app.use('/api/horario',horarioController);
 
 
 const port=process.env.port || 3000;
